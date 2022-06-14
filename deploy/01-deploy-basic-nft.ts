@@ -1,9 +1,9 @@
 import { developmentChains, VERIFICATION_BLOCK_CONFIRMATIONS} from "../helper-hardhat-config"
-import { verify }  from "../utils/verify"
-import { DeployFunction } from "hardhat-deploy/types"
-import { HardhatRuntimeEnvironment } from "hardhat/types"
+import { verify } from "../utils/verify"
+import {DeployFunction} from "hardhat-deploy/types"
+import {HardhatRuntimeEnvironment} from "hardhat/types"
 
-export const deployBasicNft: DeployFunction = async function (
+const deployBasicNft: DeployFunction = async function (
     hre: HardhatRuntimeEnvironment
   ) {
     const { deployments, getNamedAccounts, network, ethers } = hre
@@ -15,7 +15,7 @@ export const deployBasicNft: DeployFunction = async function (
 
     log("----------------------------------------------------")
     const args: any[] = []
-    const basicNft = await deploy("BasicNft", {
+    const basicNft = await deploy("BasicNFT", {
         from: deployer,
         args: args,
         log: true,
@@ -30,3 +30,5 @@ export const deployBasicNft: DeployFunction = async function (
 }
 
 deployBasicNft.tags = ["all", "basicnft", "main"]
+
+export default deployBasicNft
