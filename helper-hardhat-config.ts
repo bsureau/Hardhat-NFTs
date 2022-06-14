@@ -1,4 +1,20 @@
-export const networkConfig = {
+export interface networkConfigItem {
+    name?: string
+    subscriptionId?: string 
+    keepersUpdateInterval?: string 
+    raffleEntranceFee?: string 
+    callbackGasLimit?: string 
+    vrfCoordinatorV2?: string
+    gasLane?: string 
+    ethUsdPriceFeed?: string
+    mintFee?: string
+  }
+  
+export interface networkConfigInfo {
+    [key: number]: networkConfigItem
+}
+
+export const networkConfig: networkConfigInfo = {
     31337: {
         name: "localhost",
         ethUsdPriceFeed: "0x9326BFA02ADD2366b30bacB125260Af641031331",
@@ -19,4 +35,7 @@ export const networkConfig = {
     },
 }
 
+export const DECIMALS = "18"
+export const INITIAL_PRICE = "200000000000000000000"
 export const developmentChains = ["hardhat", "localhost"]
+export const VERIFICATION_BLOCK_CONFIRMATIONS = 6
