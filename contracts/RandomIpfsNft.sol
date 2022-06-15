@@ -41,17 +41,17 @@ contract RandomIpfsNft is ERC721URIStorage, VRFConsumerBaseV2, Ownable {
     event NftMinted(Breed dogBreed, address minter);
 
     constructor(
-        address vrfCoordonatorV2, 
+        address vrfCoordinatorV2, 
         uint64 subscriptionId, 
         bytes32 keyHash, 
         uint32 callbackGasLimit,
         string[3] memory dogTokenUris,
         uint256 mintFee
     )   ERC721("Random IPFS NFT", "RIN") 
-        VRFConsumerBaseV2(vrfCoordonatorV2)
+        VRFConsumerBaseV2(vrfCoordinatorV2)
     {
 
-        i_vrfCoordinator = VRFCoordinatorV2Interface(vrfCoordonatorV2);
+        i_vrfCoordinator = VRFCoordinatorV2Interface(vrfCoordinatorV2);
         i_subscriptionId = subscriptionId;
         i_keyHash = keyHash;
         i_callbackGasLimit = callbackGasLimit;
